@@ -1,0 +1,7 @@
+{
+  "variables": {
+    "ssh_username": "ubuntu",
+    "ssh_password": "ubuntu",
+    "os_distribution": "ubuntu"
+  }
+}

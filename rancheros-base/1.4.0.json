@@ -1,0 +1,7 @@
+{
+  "variables": {
+    "ros_version" : "1.4.0",
+    "iso_sha256" : "8ecefba0ccaccbd11d3f4a928809bc37bff1e8b2da4ad10efdf0f536f5000ed0",
+    "os_codename": "1.4.0"
+  }
+}

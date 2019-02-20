@@ -1,0 +1,9 @@
+[Unit]
+Description=Resize disk on boot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/autoresize
+
+[Install]
+WantedBy=default.target

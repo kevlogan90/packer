@@ -1,0 +1,10 @@
+{
+  "variables": {
+    "os_codename": "bionic",
+    "os_version": "18.04.1",
+    "description": "The latest stable ubuntu bionic image",
+    "iso_checksum": "a5b0ea5918f850124f3d72ef4b85bda82f0fcd02ec721be19c1a6952791c8ee8",
+    "pre_boot_cmd": "<esc><esc><enter><wait>",
+    "ssh_timeout": "30m"
+  }
+}

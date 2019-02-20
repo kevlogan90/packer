@@ -1,0 +1,23 @@
+{
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo hostname {{ user `app` }}",
+	"sudo bash -c 'echo {{ user `app` }} > /etc/hostname'"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "salt-provisioner/saltstack/formulas",
+      "destination": "/srv/"
+    },
+    {
+      "type": "salt-masterless",
+      "local_pillar_roots": "salt-provisioner/altstack/pillar",
+      "local_state_tree": "salt-provisioner/saltstack/salt/",
+      "no_exit_on_failure": "{{ user `ignore_salt_failure` }}",
+      "salt_call_args": "--id={{ user `app` }}"
+    }
+  ]
+}

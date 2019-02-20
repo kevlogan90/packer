@@ -1,0 +1,6 @@
+gossfile:
+  /tmp/tests/*/*.yaml: {}
+
+command:
+  /bin/true:
+    exit-status: 0

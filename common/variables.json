@@ -1,0 +1,15 @@
+{
+  "variables": {
+    "cpus": "1",
+    "memory": "512",
+    "disk_size": "12000",
+    "headless": "true",
+    "keep_registered": "false",
+    "boot_wait": "10s",
+    "ssh_timeout": "15m",
+    "post_shutdown_delay": "10s",
+    "shutdown_timeout": "30s",
+    "build_type": "stable",
+    "checksum_types": "md5,sha1,sha256,sha512"
+  }
+}

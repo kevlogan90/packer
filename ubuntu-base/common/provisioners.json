@@ -1,0 +1,14 @@
+
+{
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": "mkdir -p /tmp/tests/ubuntu"
+    },
+    {
+      "type": "file",
+      "source": "ubuntu-base/tests/",
+      "destination": "/tmp/tests/ubuntu"
+    }
+  ]
+}

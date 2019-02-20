@@ -1,0 +1,6 @@
+{
+  "variables": {
+    "app": "salt-master",
+    "description": "An image of salt-master"
+  }
+}

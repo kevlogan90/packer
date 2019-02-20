@@ -1,0 +1,39 @@
+{
+  "_comment": "Builds a salt master image",
+  "variables": {
+    "base_app": "base",
+    "base_build_type": "stable",
+    "base_build_version": "latest",
+    "build_type": "stable",
+    "memory": "1024",
+    "ignore_salt_failure": "false"
+  },
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "name": "virtualbox",
+      "source_path": "images/{{ user `os_distribution` }}/{{ user `os_codename` }}/{{ user `base_app` }}/{{ user `base_build_type` }}/{{ build_name }}/{{ user `base_build_version` }}/{{ user `base_app`}}.ova",
+      "vboxmanage": [
+        [
+          "modifyvm", "{{ .Name }}",
+          "--memory", "{{ user `memory` }}"
+        ]
+      ],
+      "ssh_username": "{{ user `ssh_username` }}",
+      "ssh_password": "{{ user `ssh_password` }}",
+      "shutdown_command": "sudo poweroff",
+      "vm_name": "{{ user `os_distribution` }}-{{ user `os_codename` }}-{{ user `app` }}-{{ user `build_type` }}-{{ timestamp }}",
+      "keep_registered": "{{ user `keep_registered` }}",
+      "headless": "{{ user `headless` }}",
+      "export_opts": [
+        "--manifest",
+        "--vsys", "0",
+        "--description", "{{user `description`}}",
+        "--version", "{{ user `os_distribution` }}-{{ user `os_codename` }}-{{ user `app` }}-{{ user `build_type` }}-{{ timestamp }}"
+      ],
+      "post_shutdown_delay": "{{ user `post_shutdown_delay` }}",
+      "format": "ova",
+      "vrdp_bind_address": "0.0.0.0"
+    }
+  ]
+}

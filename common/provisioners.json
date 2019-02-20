@@ -1,0 +1,16 @@
+{
+  "provisioners": [
+    {
+      "type": "goss",
+      "tests": [
+        "common/tests/goss.yaml"
+      ]
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "common/scripts/minimize.sh"
+      ]
+    }
+  ]
+}

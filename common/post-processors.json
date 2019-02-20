@@ -1,0 +1,30 @@
+{
+  "post-processors": [
+    {
+      "type": "shell-local",
+      "inline": [
+        "mkdir -p images/{{ user `os_distribution` }}/{{ user `os_codename` }}/{{ user `app` }}"
+      ]
+    },
+    {
+      "type": "manifest",
+      "output": "images/{{ user `os_distribution` }}/{{ user `os_codename` }}/{{ user `app` }}/manifest.json",
+      "strip_path": true
+    },
+    {
+      "type": "checksum",
+      "checksum_types": "{{ user `checksum_types` }}",
+      "output": "output-{{ .BuildName }}/{{ .ChecksumType }}.checksum"
+    },
+    {
+      "type": "shell-local",
+      "environment_vars": [
+	"MANIFEST_LOC=images/{{ user `os_distribution` }}/{{ user `os_codename` }}/{{ user `app` }}/manifest.json",
+        "NEW_DIR=images/{{ user `os_distribution` }}/{{ user `os_codename` }}/{{ user `app` }}/{{ user `build_type` }}/{{ build_name }}",
+        "OUTPUT_DIR=output-{{ build_name }}",
+        "APP={{ user `app` }}"
+      ],
+      "script": "common/scripts/move_output.sh"
+    }
+  ]
+}
